@@ -14,6 +14,8 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: 8.2
+    - name: Accept Android SDK Licenses
+      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
     - name: Build with Gradle
       run: gradle assembleDebug
     - name: Upload APK
